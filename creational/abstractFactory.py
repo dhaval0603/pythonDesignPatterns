@@ -9,26 +9,25 @@ FactoryProvider provides an appropriate factory.
 CarFactory will provide the Car object depending on the type of car requested
 CarFactory will provide the Color object depending on the color requested
 '''
-import abc
 from abc import abstractmethod
-
+import abc
 
 class Car:
     __metaclass__ = abc.ABCMeta
     @abstractmethod
-    def carName(self):
+    def getCarName(self):
         pass
     
 class MercedesCar(Car):
-    def carName(self):
+    def getCarName(self):
         return "Mercedes S750"
 
 class AudiCar(Car):
-    def carName(self):
+    def getCarName(self):
         return "Audi R8"
 
 class PorscheCar(Car):
-    def carName(self):
+    def getCarName(self):
         return "Porsche Cayenne"
 
 class Color:
@@ -52,44 +51,44 @@ class GreenColor(Color):
 class AbstractFactory():
     __metaclass__ = abc.ABCMeta
     @abstractmethod
-    def getCar(self,name):pass
+    def getCar(self, name):pass
     
     @abstractmethod
-    def getColor(self,color):pass
+    def getColor(self, color):pass
 
 class CarFactory(AbstractFactory):
-    def getCar(self,name):
-        if name=="Mercedes":
+    def getCar(self, name):
+        if name == "Mercedes":
             return MercedesCar()
-        elif name=="Audi":
+        elif name == "Audi":
             return AudiCar()
-        elif name=="Porsche":
+        elif name == "Porsche":
             return PorscheCar()
         else:
             print "Car Not Available"
     
-    def getColor(self,color):
+    def getColor(self, color):
         return null
 
 class ColorFactory(AbstractFactory):
-    def getColor(self,color):
-        if color=="Red":
+    def getColor(self, color):
+        if color == "Red":
             return RedColor()
-        elif color=="Blue":
+        elif color == "Blue":
             return BlueColor()
-        elif color=="Green":
+        elif color == "Green":
             return GreenColor()
         else:
             print "Color Not Available"
     
-    def getCar(self,name):
+    def getCar(self, name):
         return null
 
 class FactoryProvider:
-    def getFactory(self,factory):
-        if factory=="Car":
+    def getFactory(self, factory):
+        if factory == "Car":
             return CarFactory()
-        elif factory=="Color":
+        elif factory == "Color":
             return ColorFactory()
         else:
             print "No Such Factory Available"
@@ -104,7 +103,7 @@ def Main():
      car = carFactory.getCar(raw_input("Input Car : Mercedes, Audi, Porsche"))
      color = colorFactory.getColor(raw_input("Input Color : Red, Blue, Green"))
     
-     print "Brand New " +  car.carName() + " in " + color.getColor() + " color!"
+     print "Brand New " + car.getCarName() + " in " + color.getColor() + " color!"
 
 if __name__ == '__main__':
     Main()
