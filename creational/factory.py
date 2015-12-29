@@ -42,9 +42,17 @@ class CarFactory:
 def Main():
      carFactory = CarFactory()
      
-     car = carFactory.getCar(raw_input("Input Car : Mercedes, Audi, Porsche"))
+     car = carFactory.getCar(raw_input("Input Car : Mercedes, Audi, Porsche\n"))
     
      print "Brand New " + car.getCarName()
 
 if __name__ == '__main__':
     Main()
+    
+    
+    
+'''
+Input Car : Mercedes, Audi, Porsche
+Porsche
+Brand New Porsche Cayenne
+'''

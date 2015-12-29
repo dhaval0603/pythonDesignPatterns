@@ -100,10 +100,20 @@ def Main():
      colorFactory = FactoryProvider()
      colorFactory = colorFactory.getFactory("Color")
      
-     car = carFactory.getCar(raw_input("Input Car : Mercedes, Audi, Porsche"))
-     color = colorFactory.getColor(raw_input("Input Color : Red, Blue, Green"))
+     car = carFactory.getCar(raw_input("Input Car : Mercedes, Audi, Porsche\n"))
+     color = colorFactory.getColor(raw_input("Input Color : Red, Blue, Green\n"))
     
      print "Brand New " + car.getCarName() + " in " + color.getColor() + " color!"
 
 if __name__ == '__main__':
     Main()
+    
+    
+'''
+Input Car : Mercedes, Audi, Porsche
+Audi
+Input Color : Red, Blue, Green
+Red
+Brand New Audi R8 in Royal Red color!
+'''
+
